@@ -46,14 +46,13 @@ jobs:
         uses: docker/build-push-action@v3
         with:
           context: .
-          platforms: linux/amd64,linux/arm64
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
 
       - uses: actions/delete-package-versions@v4
         with:
-          package-name: 'chatgpt-on-wechat'
+          package-name: 'chatgpt-next-web'
           package-type: 'container'
           min-versions-to-keep: 10
           delete-only-untagged-versions: 'true'
